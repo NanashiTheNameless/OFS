@@ -35,6 +35,19 @@ jobs:
       shell: bash
       run: |
         cmake --build . --config $BUILD_TYPE --target "OpenFunscripter"
+
+    - uses: actions/upload-artifact@v4.3.1
+      with:
+        name: OFS-64x_${{github.sha}}
+        path: ${{runner.workspace}}/bin*
+        retention-days: 14
+
+
+    - uses: actions/upload-artifact@v4.3.1
+      with:
+        name: build
+        path: ${{runner.workspace}}/*
+        if-no-files-found: error
     
   linux:
     runs-on: ubuntu-latest
@@ -101,7 +114,7 @@ jobs:
         
     - uses: actions/upload-artifact@v4.3.1
       with:
-        name: OFS-64x_${{github.sha}}.zip
+        name: OFS-64x_${{github.sha}}
         path: ${{runner.workspace}}\OFS\bin\Release\*
         retention-days: 14
 
