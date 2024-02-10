@@ -18,7 +18,7 @@ jobs:
       
     - name: Install Dependencies
       run: |
-        wget -O MacPorts.pkg https://distfiles.macports.org/MacPorts/MacPorts-2.6.4-10.15-Catalina.pkg
+        wget -O MacPorts.pkg https://distfiles.macports.org/MacPorts/MacPorts-2.9.1-12-Monterey.pkg
         sudo installer -pkg MacPorts.pkg -target /
         brew install llvm
         /opt/local/bin/port version
