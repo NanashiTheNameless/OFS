@@ -10,7 +10,7 @@ jobs:
   crafting:
     runs-on: ubuntu-latest
     env:
-      SNAP_NAME: "Unknown"     
+      SNAP_NAME: "openfunscripter"     
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Check out Git repository
@@ -23,12 +23,12 @@ jobs:
         id: latest_release_info
         uses: jossef/action-latest-release-info@v1.1.0
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{github.token}}
 
       - name: Install Snapcraft
         uses: samuelmeuli/action-snapcraft@v2.1.1
-        with:
-            use_lxd: true
+        #with:
+            #use_lxd: true
             
       - name: Build
         run: |
