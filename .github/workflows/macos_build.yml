@@ -55,8 +55,14 @@ jobs:
         cd ..
         find "./OpenFunscripter/bin/"
     
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       with:
         name: build
-        path: ${{ github.workspace }}/bin
+        path: ${{ github.workspace }}/bin*
+        if-no-files-found: error
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: OFS_${{github.sha}}.zip
+        path: ${{ runner.workspace }}/bin*
         if-no-files-found: error
