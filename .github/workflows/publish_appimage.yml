@@ -9,10 +9,10 @@ env:
 
 jobs:
   AppImage_creation:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4.1.1
       with:
         submodules: 'true'
         fetch-depth: 0
@@ -24,7 +24,7 @@ jobs:
         
     - name: Gets latest created release info
       id: latest_release_info
-      uses: jossef/action-latest-release-info@v1.1.0
+      uses: jossef/action-latest-release-info@v1.2.2
       env:
         GITHUB_TOKEN: ${{ github.token }}
         
@@ -63,7 +63,7 @@ jobs:
         ARCH=x86_64 ./appimagetool-x86_64.AppImage AppDir/
         ls
     
-    #- uses: actions/upload-artifact@v2
+    #- uses: actions/upload-artifact@v4.3.1
     #  with:
     #    name: OFS-64x_${{github.sha}}.zip
     #    path: ${{runner.workspace}}
@@ -71,7 +71,7 @@ jobs:
         
     - name: Upload AppImage
       id: upload-release-installer 
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@latest
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:

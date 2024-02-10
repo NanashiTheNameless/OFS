@@ -13,7 +13,7 @@ jobs:
     runs-on: macos-latest
           
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4.1.1
       with:
         submodules: 'recursive'
         fetch-depth: 0
@@ -37,10 +37,10 @@ jobs:
         cmake --build . --config $BUILD_TYPE --target "OpenFunscripter"
     
   linux:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4.1.1
       with:
         submodules: 'recursive'
         fetch-depth: 0
@@ -66,10 +66,10 @@ jobs:
 
     
   windows:
-    runs-on: windows-2019
+    runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4.1.1
       with:
         submodules: 'recursive'
         fetch-depth: 0
@@ -99,7 +99,7 @@ jobs:
     #    7z e "${{runner.workspace}}\ffmpeg.7z" -o${{runner.workspace}}\ffmpeg
     #    cp "${{runner.workspace}}\ffmpeg\ffmpeg.exe" "${{runner.workspace}}\OFS\bin\Release\ffmpeg.exe"
         
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4.3.1
       with:
         name: OFS-64x_${{github.sha}}.zip
         path: ${{runner.workspace}}\OFS\bin\Release\*

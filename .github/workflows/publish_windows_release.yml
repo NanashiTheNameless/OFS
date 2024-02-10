@@ -8,10 +8,10 @@ on:
 
 jobs:
   build:
-    runs-on: windows-2019
+    runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4.1.1
       with:
         submodules: 'true'
         lfs: 'true'
@@ -22,7 +22,7 @@ jobs:
     
     - name: Gets latest created release info
       id: latest_release_info
-      uses: jossef/action-latest-release-info@v1.1.0
+      uses: jossef/action-latest-release-info@v1.2.2
       env:
         GITHUB_TOKEN: ${{ github.token }}
       
@@ -51,7 +51,7 @@ jobs:
 
     - name: Upload Release Zip
       id: upload-release-zip
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@latest
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -62,7 +62,7 @@ jobs:
 
     - name: Upload Release Installer
       id: upload-release-installer 
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@latest
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -75,14 +75,14 @@ jobs:
     runs-on: windows-2019
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4.1.1
       with:
         submodules: 'true'
         fetch-depth: 0
     
     - name: Gets latest created release info
       id: latest_release_info
-      uses: jossef/action-latest-release-info@v1.1.0
+      uses: jossef/action-latest-release-info@v1.2.2
       env:
         GITHUB_TOKEN: ${{ github.token }}
       
@@ -111,7 +111,7 @@ jobs:
 
     - name: Upload Release Zip
       id: upload-release-zip
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@latest
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -122,7 +122,7 @@ jobs:
 
     - name: Upload Release Installer
       id: upload-release-installer 
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@latest
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
