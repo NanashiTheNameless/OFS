@@ -32,7 +32,7 @@ jobs:
             
       - name: Build
         run: |
-          sg lxd -c 'snapcraft --use-lxd'
+          sg lxd -c 'snapcraft'
       
       - name: Get snap name
         run: |
